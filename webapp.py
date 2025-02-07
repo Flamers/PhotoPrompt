@@ -21,6 +21,7 @@ def prompt_out():
     current_time = int(time.time())
     os.chdir(sys.path[0])
     update_time =open("change_time.txt", "r")
+    chosen_prompt = "None, you bastard"
     for line in update_time:
         if current_time > int(line):
             file_contents =open("change_time.txt", "r")
@@ -57,13 +58,16 @@ def prompt_out():
                 writer=csv.writer(file,  delimiter = ",")
                 writer.writerow(chosen_prompt_list)
                 file.close()
-            print('Chosen prompt is '+chosen_prompt)
+            chosen_prompt = 'Chosen prompt is '+chosen_prompt
+            # print('Chosen prompt is '+chosen_prompt)
         else:
             with open('previous_prompt.csv','r') as file:
                 reader = csv.reader(file)
                 for row in reader:
                     for val in row:
                         print('Chosen prompt is '+val)
+                        chosen_prompt = 'Chosen prompt is '+val
+        return chosen_prompt
 def web_page():
     return prompt_out()
 
