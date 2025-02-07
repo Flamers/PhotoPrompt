@@ -27,7 +27,7 @@ def prompt_out():
             file_contents =open("change_time.txt", "r")
             for line in file_contents:  
                 line= int(line)
-                new_time = line + 86400
+                new_time = line + 2419200
                 #print(new_time)
             with open("change_time.txt", "w") as file:
                 file.write(str(new_time)) 
